@@ -17,7 +17,7 @@ window.onload = function () {
 			boutonFavoris.classList.add("rounded-circle");
 			boutonFavoris.setAttribute("id", `${imagePath[0]}`);
 			boutonFavoris.addEventListener("click", () => {
-				if (boutonFavoris.innerHTML == '☆') {
+				if (boutonFavoris.innerHTML === '☆') {
 					boutonFavoris.innerHTML = '★';
 					fetch(`http://localhost:3000/favorite?image=${encodeURIComponent(imagePath[0])}`)
 						.then((response) => {
