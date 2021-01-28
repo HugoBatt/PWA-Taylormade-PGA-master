@@ -17,8 +17,7 @@ window.onload = function () {
 			boutonFavoris.classList.add("rounded-circle");
 			boutonFavoris.setAttribute("id", `${imagePath[0]}`);
 			boutonFavoris.addEventListener("click", () => {
-				if(boutonFavoris=='☆') {
-					boutonFavoris.innerHTML = '★';
+				boutonFavoris.innerHTML = '★';
 					fetch(`http://localhost:3000/favorite?image=${encodeURIComponent(imagePath[0])}`)
 						.then((response) => {
 							navigator.serviceWorker.ready.then(
@@ -39,31 +38,6 @@ window.onload = function () {
 							);
 						})
 						.catch(console.error);
-				}
-				else{
-					boutonFavoris.innerHTML = '☆';
-					fetch(`http://localhost:3000/favorite?image=${encodeURIComponent(imagePath[0])}`)
-						.then((response) => {
-							navigator.serviceWorker.ready.then(
-								(serviceWorkerRegistration) => {
-									serviceWorkerRegistration.pushManager.subscribe(
-										{
-											userVisibleOnly: true,
-											applicationServerKey: "BNANPi8bmsrs4-wBjl_Et7dDewZWSHjYKKZuoDvZai1fvnhS282gY_PdYl38DXs4pS-FORfya5jkOs1dMkjpTHY"
-										}
-									).then(_subscription => {
-										Notification.requestPermission(permission => {
-											if (permission === "granted") {
-												const notification = new Notification("Supprimé des favoris");
-											}
-										});
-									});
-								}
-							);
-						})
-						.catch(console.error);
-				}
-
 			})
 
 			imgHolder.classList.add("img-holder");
