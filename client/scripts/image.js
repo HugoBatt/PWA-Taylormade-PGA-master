@@ -16,8 +16,10 @@ window.onload = function () {
 			boutonFavoris.classList.add("img");
 			boutonFavoris.classList.add("rounded-circle");
 			boutonFavoris.setAttribute("id", `${imagePath[0]}`);
+
+			let state = false
 			boutonFavoris.addEventListener("click", () => {
-				if (boutonFavoris.innerHTML === '☆') {
+				if (!state) {
 					boutonFavoris.innerHTML = '★';
 					fetch(`http://localhost:3000/favorite?image=${encodeURIComponent(imagePath[0])}`)
 						.then((response) => {
@@ -40,7 +42,7 @@ window.onload = function () {
 						})
 						.catch(console.error);
 				}
-				if(boutonFavoris.innerHTML === '★'){
+				if(state){
 					boutonFavoris.innerHTML = '☆';
 					fetch(`http://localhost:3000/favorite?image=${encodeURIComponent(imagePath[0])}`)
 						.then((response) => {
