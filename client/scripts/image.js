@@ -42,6 +42,7 @@ window.onload = function () {
 						})
 						.catch(console.error);
 				}
+				//TODO find a way to revert add to favorite
 				if(state){
 					boutonFavoris.innerHTML = '☆';
 					fetch(`http://localhost:3000/favorite?image=${encodeURIComponent(imagePath[0])}`)
