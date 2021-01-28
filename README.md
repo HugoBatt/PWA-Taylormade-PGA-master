@@ -11,4 +11,4 @@ MAZEL Axel
 
 # NETLIFY
 
-https://admiring-leavitt-a033c5.netlify.app/
+https://6012da812013822846784f2a--flamboyant-lumiere-e8adb4.netlify.app/
