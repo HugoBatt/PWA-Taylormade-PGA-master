@@ -40,7 +40,7 @@ window.onload = function () {
 						})
 						.catch(console.error);
 				}
-				else{
+				if(boutonFavoris.innerHTML === '★'){
 					boutonFavoris.innerHTML = '☆';
 					fetch(`http://localhost:3000/favorite?image=${encodeURIComponent(imagePath[0])}`)
 						.then((response) => {
